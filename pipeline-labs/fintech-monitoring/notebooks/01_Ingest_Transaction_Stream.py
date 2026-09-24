@@ -93,7 +93,7 @@ from pyspark.sql.types import *
 #   .option("cloudFiles.rescuedDataColumn", "_rescued_data")
 #   .load(TRANSACTIONS_RAW_PATH))
 #
-# # display(raw_txns_df, checkpointLocation=CHECKPOINT_PATH + "/display_raw_txns")
+# # display(raw_txns_df, checkpointLocation=CHECKPOINT_PATH + "/display_raw_txns", outputMode="append")
 
 # COMMAND ----------
 
@@ -129,7 +129,7 @@ generate_batch(n_files=2, records_per_file=50)
 
 # TODO: Filter for rescued records
 # rescued_df = raw_txns_df.filter("__________ IS NOT NULL")
-# display(rescued_df, checkpointLocation=CHECKPOINT_PATH + "/display_rescued")
+# display(rescued_df, checkpointLocation=CHECKPOINT_PATH + "/display_rescued", outputMode="append")
 
 # COMMAND ----------
 
@@ -142,7 +142,7 @@ generate_batch(n_files=2, records_per_file=50)
 # ✅ SOLUTION: Inspect Rescued Data
 
 # rescued_df = raw_txns_df.filter("_rescued_data IS NOT NULL")
-# # display(rescued_df, checkpointLocation=CHECKPOINT_PATH + "/display_rescued")
+# # display(rescued_df, checkpointLocation=CHECKPOINT_PATH + "/display_rescued", outputMode="append")
 
 # COMMAND ----------
 
